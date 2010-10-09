@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use Meta::Builder::Util;
-use Carp qw/croak/;
+use Carp qw/croak carp/;
 
 sub new {
     my $class = shift;
@@ -56,6 +56,7 @@ sub add_hash_metric {
         has   => \&default_hash_has,
         clear => \&default_hash_clear,
         pull  => \&default_hash_pull,
+        merge => \&default_hash_merge,
         %actions,
     );
 }
@@ -71,6 +72,7 @@ sub add_lists_metric {
         has   => \&default_list_has,
         clear => \&default_list_clear,
         pull  => \&default_list_pull,
+        merge => \&default_list_merge,
         %actions,
     );
 }
@@ -200,6 +202,16 @@ sub default_hash_pull {
     return delete $data->{$item};
 }
 
+sub default_hash_merge {
+    my $self = shift;
+    my ( $data, $metric, $action, $merge ) = @_;
+    for my $key ( keys %$merge ) {
+        croak "$key is defined for $metric in both meta-objects"
+            if $data->{$key};
+        $data->{$key} = $merge->{$key};
+    }
+}
+
 sub default_list_push {
     my $self = shift;
     my ( $data, $metric, $action, $item, @values ) = @_;
@@ -231,6 +243,27 @@ sub default_list_pull {
     my @out = default_list_get( @_ );
     default_list_clear( @_ );
     return @out;
+}
+
+sub default_list_merge {
+    my $self = shift;
+    my ( $data, $metric, $action, $merge ) = @_;
+    for my $key ( keys %$merge ) {
+        push @{ $data->{$key} } => @{ $merge->{$key} };
+    }
+}
+
+sub merge {
+    my $self = shift;
+    my ( $merge ) = @_;
+    for my $metric ( keys %{ $self->meta_meta->{ metrics }}) {
+        my $mergesub = $self->action_method_name( $metric, 'merge' );
+        unless( $self->can( $mergesub )) {
+            carp "Cannot merge metric '$metric', define a 'merge' action for it.";
+            next;
+        }
+        $self->$mergesub( $merge->$metric );
+    }
 }
 
 1;
