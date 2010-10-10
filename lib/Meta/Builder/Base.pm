@@ -96,7 +96,6 @@ sub add_metric {
 
 sub add_action {
     my $class = shift;
-    use Carp qw/confess/;
     my ( $metric, %actions ) = @_;
     $class->_add_action( $metric, $_, $actions{ $_ })
         for keys %actions;
@@ -119,7 +118,7 @@ sub _add_action {
         my @out = $code->( $self, $self->$metric, $metric, $action, @$args );
         $_->( $self, $self->$metric, $metric, $action, @$args )
             for @{ $meta->{after}->{$name} || [] };
-        return @out > 1 ? @out : $out[0];
+        return @out ? (@out > 1 ? @out : $out[0]) : ();
     });
 }
 
@@ -227,8 +226,7 @@ sub default_list_push {
 
 sub default_list_get {
     my $data = default_hash_get(@_);
-    return unless $data;
-    return @$data;
+    return $data ? @$data : ();
 }
 
 sub default_list_has {
