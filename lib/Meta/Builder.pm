@@ -62,18 +62,18 @@ Meta::Builder - Tools for creating Meta objects to track custom metrics.
 
 =head1 DESCRIPTION
 
-Meta programming is becomming more and more popular. The popularity of Meta
+Meta programming is becoming more and more popular. The popularity of Meta
 programming comes from the fact that many problems are made significantly
 easier. There are a few specialized Meta tools out there, for instance
 L<Class:MOP> which is used by L<Moose> to track class metadata.
 
 Meta::Builder is designed to be a generic tool for writing Meta objects. Unlike
 specialized tools, Meta::Builder makes no assumptions about what metrics you
-will care about. Meta::Builder also mkaes it simple for others to extend your
+will care about. Meta::Builder also makes it simple for others to extend your
 meta-object based tools by providing hooks for other packages to add metrics to
 your meta object.
 
-If a specialized Meta object tool is available ot meet your needs please use
+If a specialized Meta object tool is available to meet your needs please use
 it. However if you need a simple Meta object to track a couple metrics, use
 Meta::Builder.
 
@@ -142,7 +142,7 @@ My.pm:
 
 When you use Meta::Builder your class is automatically turned into a subclass
 of L<Meta::Builder::Base>. In addition several "sugar" functions are exported
-into your namespace. To avoid the "sugar" functions you can simply sublass
+into your namespace. To avoid the "sugar" functions you can simply subclass
 L<Meta::Builder::Base> directly.
 
 =head1 EXPORTS
