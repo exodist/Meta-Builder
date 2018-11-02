@@ -2,6 +2,7 @@ package Meta::Builder;
 use strict;
 use warnings;
 
+use 5.006;
 use Carp qw/croak/;
 use Meta::Builder::Util;
 use Meta::Builder::Base;
