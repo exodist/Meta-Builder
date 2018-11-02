@@ -193,7 +193,7 @@ Chad Granum L<exodist7@gmail.com>
 
 Copyright (C) 2010 Chad Granum
 
-Meta-Builder is free software; Standard perl licence.
+Meta-Builder is free software and is licensed under the same terms as Perl itself.
 
 Meta-Builder is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
