@@ -7,7 +7,7 @@ use Carp qw/croak/;
 use Meta::Builder::Util;
 use Meta::Builder::Base;
 
-our $VERSION = "0.003";
+our $VERSION = "0.004";
 
 our @SUGAR = qw/metric action hash_metric lists_metric/;
 our @HOOKS = qw/before after/;
