@@ -66,7 +66,7 @@ Meta::Builder - Tools for creating Meta objects to track custom metrics.
 Meta programming is becoming more and more popular. The popularity of Meta
 programming comes from the fact that many problems are made significantly
 easier. There are a few specialized Meta tools out there, for instance
-L<Class:MOP> which is used by L<Moose> to track class metadata.
+L<Class::MOP> which is used by L<Moose> to track class metadata.
 
 Meta::Builder is designed to be a generic tool for writing Meta objects. Unlike
 specialized tools, Meta::Builder makes no assumptions about what metrics you
@@ -152,31 +152,31 @@ L<Meta::Builder::Base> directly.
 
 =item metric( $name, \&generator, %actions )
 
-Wrapper around C<caller->add_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>add_metric()>. See L<Meta::Builder::Base>.
 
 =item action( $metric, $name, $code )
 
-Wrapper around C<caller->add_action()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>add_action()>. See L<Meta::Builder::Base>.
 
 =item hash_metric( $name, %additional_actions )
 
-Wrapper around C<caller->add_hash_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>add_hash_metric()>. See L<Meta::Builder::Base>.
 
 =item lists_metric( $name, %additional_actions )
 
-Wrapper around C<caller->add_lists_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>add_lists_metric()>. See L<Meta::Builder::Base>.
 
 =item before( $metric, $action, $code )
 
-Wrapper around C<caller->hook_before()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>hook_before()>. See L<Meta::Builder::Base>.
 
 =item after( $metric, $action, $code )
 
-Wrapper around C<caller->hook_after()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>hook_after()>. See L<Meta::Builder::Base>.
 
 =item accessor( $name )
 
-Wrapper around C<caller->set_accessor()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller-E<gt>set_accessor()>. See L<Meta::Builder::Base>.
 
 =item make_immutable()
 
