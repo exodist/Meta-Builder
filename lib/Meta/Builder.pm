@@ -35,7 +35,7 @@ sub import {
     my $caller = caller;
 
     inject( $caller, $_, $class->can( $_ )) for @EXPORT;
-    no strict 'refs';
+    no strict 'refs';  ## no critic
     push @{"$caller\::ISA"} => 'Meta::Builder::Base';
 }
 
