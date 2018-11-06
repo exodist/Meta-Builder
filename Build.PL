@@ -12,9 +12,9 @@ my $build = Module::Build->new(
         Carp => 0,
     },
     build_requires => {
-        'Fennec::Lite'    => "",
-        'Test::More'      => "",
-        'Test::Exception' => "",
+        'Fennec::Lite'    => 0,
+        'Test::More'      => 0,
+        'Test::Exception' => 0,
     },
     meta_merge => {
         resources => {
