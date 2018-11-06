@@ -152,31 +152,31 @@ L<Meta::Builder::Base> directly.
 
 =item metric( $name, \&generator, %actions )
 
-Wraper around C<caller->add_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->add_metric()>. See L<Meta::Builder::Base>.
 
 =item action( $metric, $name, $code )
 
-Wraper around C<caller->add_action()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->add_action()>. See L<Meta::Builder::Base>.
 
 =item hash_metric( $name, %additional_actions )
 
-Wraper around C<caller->add_hash_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->add_hash_metric()>. See L<Meta::Builder::Base>.
 
 =item lists_metric( $name, %additional_actions )
 
-Wraper around C<caller->add_lists_metric()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->add_lists_metric()>. See L<Meta::Builder::Base>.
 
 =item before( $metric, $action, $code )
 
-Wraper around C<caller->hook_before()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->hook_before()>. See L<Meta::Builder::Base>.
 
 =item after( $metric, $action, $code )
 
-Wraper around C<caller->hook_after()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->hook_after()>. See L<Meta::Builder::Base>.
 
 =item accessor( $name )
 
-Wraper around C<caller->set_accessor()>. See L<Meta::Builder::Base>.
+Wrapper around C<caller->set_accessor()>. See L<Meta::Builder::Base>.
 
 =item make_immutable()
 
